@@ -1,3 +1,4 @@
+console.time("Time");
 const jimp = require("jimp");
 const BFS = require("./BFS");
 
@@ -7,7 +8,9 @@ jimp.read("Mazes/" + fileName + ".png", Main);
 let height, width, maze, totalPixel;
 
 function Main(err, image) {
-  console.time("Time");
+  if (err) {
+    throw err;
+  }
   const { data } = image.bitmap;
 
   height = image.bitmap.height;
@@ -25,8 +28,9 @@ function Main(err, image) {
 
   updateData(data, path);
 
-  console.timeEnd("Time");
   image.write("./Solved/" + fileName + " Solved.png");
+  console.timeEnd("Time");
+  console.log("Path size : " + path.size());
   console.log("Total Pixels : " + totalPixel);
   console.log("Saved " + fileName + " Solved.png");
 }
