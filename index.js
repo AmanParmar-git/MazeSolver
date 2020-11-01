@@ -30,7 +30,7 @@ function Main(err, image) {
 
   image.write("./Solved/" + fileName + " Solved.png");
   console.timeEnd("Time");
-  console.log("Path size : " + path.size());
+  console.log("Path size : " + path.size);
   console.log("Total Pixels : " + totalPixel);
   console.log("Saved " + fileName + " Solved.png");
 }
